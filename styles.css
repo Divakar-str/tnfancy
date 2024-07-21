@@ -1,18 +1,57 @@
- /* Custom styling */
- .navbar-custom {
+
+html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+.navbar-custom {
     background-color: #343a40;
   }
-  .navbar-custom .navbar-brand,
-  .navbar-custom .nav-link {
-    color: #ffffff;
+  .navbar-brand {
+    font-size: 1.6rem; /* Adjusted for better readability on mobile */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
+    color: gold;
   }
+  .navbar-toggler {
+    border: none;
+  }
+  .navbar-toggler-icon {
+    font-size: 1.8rem; /* Increase icon size for better visibility */
+    padding:6px;
+    color: #e9ecef;
+  }
+  .nav-link {
+    font-size: 1rem; /* Adjusted for better readability on mobile */
+    color: #f8f9fa;
+  }
+
+
+
   .navbar-custom .nav-link:hover {
     color: #FFD700; /* Change link hover color */
   }
 
-
-
-
+  .content {
+    margin-top: 100px !important;
+    flex: 1;
+  }
+  .footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+  }
+  .footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
 #box-3{
 
     text-transform: uppercase !important;
@@ -30,10 +69,12 @@
     margin-top: 20px;
     border: 1px solid #000000 !important;
     border-radius: 10px;
+
 }
 .table-custom thead {
     background-color: #0791dc;
     color: #ffffff;
+    height: 60px;
 
 }
 .table-custom th, .table-custom td {
@@ -42,6 +83,7 @@
     height: 15px;
     border-color: #000000 !important;
     border-radius: 5%;
+    height: 50px;
 }
 .table-custom tbody tr:nth-child(even) {
     background-color: #f8f9fa;
