@@ -11,11 +11,12 @@ html, body {
     background-color: #343a40;
   }
   .navbar-brand {
-    font-size: 1.6rem; /* Adjusted for better readability on mobile */
+    font-size: 0.9rem ; /* Adjusted for better readability on mobile */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden; /* Hide overflow text */
     text-overflow: ellipsis; /* Show ellipsis for overflow text */
     color: gold;
+    font-weight: bolder;
   }
   .navbar-toggler {
     border: none;
