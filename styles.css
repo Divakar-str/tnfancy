@@ -1,9 +1,10 @@
-.navbar-custom {
-    background-color: #007BFF; /* Change navbar background color */
+ /* Custom styling */
+ .navbar-custom {
+    background-color: #343a40;
   }
   .navbar-custom .navbar-brand,
   .navbar-custom .nav-link {
-    color: #fff; /* Change link color */
+    color: #ffffff;
   }
   .navbar-custom .nav-link:hover {
     color: #FFD700; /* Change link hover color */
