@@ -1,3 +1,5 @@
+
+
 // Character to number mapping
 const charToNumberMapping = {
   'A': 1, 'I': 1, 'J': 1, 'Q': 1, 'Y': 1,
@@ -95,6 +97,8 @@ function updateTableContent() {
   var column1Row2 = box4Value;
   var column1Row3 = `${box1Value}-${box2Value}-${box3Value}-${box4Value}`;
 
+  var numberplate =`${box1Value} ${box2Value} ${box3Value} ${box4Value}`;
+
   // Calculate sums for Column 2
   var sumRow1 = numericBox1 + numericBox2 + numericBox3;
   var sumRow2 = numericBox4;
@@ -112,6 +116,10 @@ function updateTableContent() {
   var sumRow22 = reducesingle(sumRow2);
   var sumRow32 = reducesingle(sumRow3);
 
+  
+
+  document.getElementById("numberPlate").style.display = "flex";
+  document.getElementById('number').textContent=numberplate;
 
   // Update table content
   document.getElementById('content1').textContent = column1Row1;
@@ -186,11 +194,9 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
   }
 });
 
-// Initialize tooltips
-$(document).ready(function(){
+$(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
-
 
 
 
@@ -265,3 +271,7 @@ const charHeaderRow = document.querySelector('#charHeaderRow');
           document.querySelectorAll('.content').forEach(section => section.style.display = 'none');
           document.getElementById('home').style.display = 'block';
       });
+
+
+
+   
