@@ -3,135 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vechile Number Numerology</title>
-   <!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Vehicle Number Numerology</title>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+   
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- FontAwesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
-    <link href="styles.css" rel="stylesheet"> <!-- Link to your external CSS file -->
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
-          <div class="d-flex w-100 justify-content-between align-items-center">
-            <a class="navbar-brand" href="#">Vehicle Number Numerology (தமிழ்)</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <i class="fas fa-bars navbar-toggler-icon"></i>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-<div class="container mt-5 content">
-    <form id="myForm">
-        <div class="form-row">
-            <div class="form-group col">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="box1" value="TN" readonly
-                           data-toggle="tooltip" title="State code">
-                </div>
+            <div class="d-flex w-100 justify-content-between align-items-center">
+                
+                <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" style="height: 60px;"> Vehicle Number Numerology (தமிழ்)</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars navbar-toggler-icon"></i>
+                </button>
             </div>
-            <div class="form-group col">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="box2" maxlength="2" pattern="[0-9]{1,2}" required
-                           data-toggle="tooltip" title="RTO code">
-                </div>
-            </div>
-            <div class="form-group col">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="box3" maxlength="2" pattern="[A-Za-z]{0,2}" 
-                           data-toggle="tooltip" title="Serial" oninput="this.value = this.value.toUpperCase()">
-                </div>
-            </div>
-            <div class="form-group col">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="box4" pattern="[0-9]{4}" required
-                           data-toggle="tooltip" title="Number">
-                </div>
+            <div class="collapse navbar-collapse show justify-content-end" id="navbarNav">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item active mx-2">
+                        <a class="nav-link active" href="#" data-target="#home" onclick="showSection(event, 'home')">
+                            <i class="fas fa-home mr-1"></i> Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#" data-target="#chart" onclick="showSection(event, 'chart')">
+                            <i class="fas fa-chart-bar mr-1"></i> Chart
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <div class="form-group row">
-            <div class="col-sm-12">
-                <button type="submit" id="submit" class="btn btn-primary btn-block">Submit</button>
+    <div class="container mt-5 content" id="home">
+        <form id="myForm">
+            <div class="form-row">
+                <div class="form-group col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="box1" value="TN" readonly
+                               data-toggle="tooltip" title="State code">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="box2" maxlength="2" pattern="[0-9]{1,2}" required
+                               data-toggle="tooltip" title="RTO code">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="box3" maxlength="2" pattern="[A-Za-z]{0,2}" 
+                               data-toggle="tooltip" title="Serial" oninput="this.value = this.value.toUpperCase()">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-sort-alpha-asc"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="box4" pattern="[0-9]{4}" required
+                               data-toggle="tooltip" title="Number">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-sort-numeric-asc"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <button type="submit" id="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i> Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="result" class="mt-3">
+            <!-- Table to display dynamic content -->
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-custom table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">NUMBER <i class="fas fa-sort-numeric-up"></i></th>
+                            <th scope="col">TOTAL <i class="fas fa-calculator"></i></th>
+                            <th scope="col">NUMEROLOGY <i class="fas fa-star"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- First Row -->
+                        <tr id="row1">
+                            <td rowspan="2"><span id="content1"></span></td>
+                            <td colspan="2" rowspan="2"><span id="second1"></span></td>
+                        </tr>
+                        <tr></tr>
+                        <!-- Second Row -->
+                        <tr id="row2">
+                            <td rowspan="2"><span id="content2"></span></td>
+                            <td><span id="second2"></span></td>
+                            <td id="third2c"><span id="third2"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span id="second22"></span></td>
+                            <td id="third22c"><span id="third22"></span></td>
+                        </tr>
+                        <!-- Third Row -->
+                        <tr id="row3">
+                            <td rowspan="2"><span id="content3"></span></td>
+                            <td><span id="second3"></span></td>
+                            <td id="third3c"><span id="third3"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span id="second32"></span></td>
+                            <td id="third32c"><span id="third32"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </form>
+    </div>
 
-    <div id="result" class="mt-3">
-        <!-- Table to display dynamic content -->
-        <div class="table-responsive">
-            <table class="table table-striped table-hover table-custom table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">NUMBER</th>
-                        <th scope="col">TOTAL</th>
-                        <th scope="col">NUMEROLOGY</th>
-                    </tr>
+    <div class="container mt-5 content" id="chart">
+        <div class="table-container table-responsive">
+            <table class="table table-striped table-bordered" id="charNumberTable">
+                <thead class="thead-dark">
+                    <tr id="charHeaderRow"></tr>
+                    <tr id="numberHeaderRow"></tr>
                 </thead>
-                <tbody>
-                    <!-- First Row -->
-                    <tr id="row1">
-                        <td rowspan="2"><span id="content1"></span></td>
-                        <td colspan="2" rowspan="2"><span id="second1"></span></td>
-                    </tr>
-                    <tr>
-                       
-                    </tr>
-                    <!-- Second Row -->
-                    <tr id="row2">
-                        <td rowspan="2"><span id="content2"></span></td>
-                        <td><span id="second2"></span></td>
-                        <td><span id="third2"></span></td>
-                    </tr>
-                    <tr>
-                        <td><span id="second22"></span></td>
-                        <td><span id="third22"></span></td>
-                    </tr>
-                    <!-- Third Row -->
-                    <tr id="row3">
-                        <td rowspan="2"><span id="content3"></span></td>
-                        <td><span id="second3"></span></td>
-                        <td><span id="third3"></span></td>
-                    </tr>
-                    <tr>
-                        <td><span id="second32"></span></td>
-                        <td><span id="third32"></span></td>
-                    </tr>
-                </tbody>
+            </table>
+        </div>
+        <div class="table-container table-responsive mt-3">
+            <table class="table table-striped table-bordered" id="numberCategoryTable">
+                <thead class="thead-dark">
+                    <tr></tr>
+                </thead>
+                <tbody></tbody>
             </table>
         </div>
     </div>
-</div>
 
-
-<footer class="footer mt-auto py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <p>&copy; 2024 Vehicle Number Numerology (தமிழ்).</p>
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Vehicle Number Numerology (தமிழ்).</p>
+                </div>
+                <div class="col-md-6 text-md-right">designed by Divakar_str
+                    <!-- <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a> -->
+                </div>
+            </div>
         </div>
-        <div class="col-md-6 text-md-right">
-          <!-- <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a> -->
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-<!-- jQuery, Popper.js, and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-<script src="script.js"></script>
-
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

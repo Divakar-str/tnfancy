@@ -34,6 +34,16 @@ const charToNumberMapping = {
   
  
 
+  const categoryColorMapping = {
+    'மிக மிக அதிர்ஸ்டம்': '#00FF00', // Green
+    'அதிர்ஸ்டம்': '#7FFF00',         // Light Green
+    'சுமார்': '#FFFF00',              // Yellow (changed)
+    'துரஅதிர்ஸ்டம்': '#FFA500',      // Orange
+    'எதிரியை அழிப்பது': '#FF4500',   // Orange Red
+    'சோதனை மிக்கது': '#FF0000',      // Red
+    'ஆபத்து': '#8B0000',             // Dark Red
+    'ஏமாற்றம்': '#000000'            // Black
+};
 
 // Function to move focus to the next input field
 function moveFocus(currentInput, nextInput) {
@@ -124,6 +134,21 @@ function updateTableContent() {
 
   document.getElementById('second32').textContent = sumRow32;
   document.getElementById('third32').textContent=getCategory(sumRow32);
+
+  // Apply colors based on category
+  applyCategoryColor('third2c', getCategory(sumRow2));
+  applyCategoryColor('third22c', getCategory(sumRow22));
+  applyCategoryColor('third3c', getCategory(sumRow3));
+  applyCategoryColor('third32c', getCategory(sumRow32));
+}
+
+function applyCategoryColor(elementId, category) {
+  const element = document.getElementById(elementId);
+  const color = categoryColorMapping[category];
+  element.style.background = color;
+  element.style.fontSize = '15px';
+  element.style.fontWeight = 'bolder';
+ 
 }
 
 // Add event listeners to move focus between inputs
@@ -165,3 +190,78 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+
+
+
+const charHeaderRow = document.querySelector('#charHeaderRow');
+        const numberHeaderRow = document.querySelector('#numberHeaderRow');
+        const numberCategoryTableBody = document.querySelector('#numberCategoryTable tbody');
+
+        // Sort characters alphabetically
+        const sortedChars = Object.keys(charToNumberMapping).sort();
+
+        // Populate Character to Number Mapping Table
+        sortedChars.forEach(char => {
+            const number = charToNumberMapping[char];
+            
+            const charCell = document.createElement('th');
+            const numberCell = document.createElement('td');
+            
+            charCell.textContent = char;
+            numberCell.textContent = number;
+            
+            charHeaderRow.appendChild(charCell);
+            numberHeaderRow.appendChild(numberCell);
+        });
+
+        // Populate Number to Category Mapping Table
+        const categories = [
+            { name: 'மிக மிக அதிர்ஸ்டம்', numbers: migaathirstam },
+            { name: 'அதிர்ஸ்டம்', numbers: athirstam },
+            { name: 'துரஅதிர்ஸ்டம்', numbers: thuraathirstam },
+            { name: 'எதிரியை அழிப்பது', numbers: aathiryaialipathu },
+            { name: 'சோதனை மிக்கது', numbers: sothanai },
+            { name: 'சுமார்', numbers: sumar },
+            { name: 'ஆபத்து', numbers: aapathu },
+            { name: 'ஏமாற்றம்', numbers: aamatram }
+        ];
+
+        categories.forEach(category => {
+            const row = document.createElement('tr');
+            const categoryCell = document.createElement('th');
+            const numbersCell = document.createElement('td');
+            
+            categoryCell.textContent = category.name;
+            numbersCell.textContent = category.numbers.join(', ');
+            
+            row.appendChild(categoryCell);
+            row.appendChild(numbersCell);
+            numberCategoryTableBody.appendChild(row);
+        });
+
+
+
+        function showSection(event, sectionId) {
+          event.preventDefault();
+          
+          // Remove active class from all nav links
+          const navLinks = document.querySelectorAll('.nav-link');
+          navLinks.forEach(link => link.classList.remove('active'));
+          
+          // Add active class to the clicked nav link
+          event.currentTarget.classList.add('active');
+      
+          // Hide all sections
+          const sections = document.querySelectorAll('.content');
+          sections.forEach(section => section.style.display = 'none');
+      
+          // Show the selected section
+          document.getElementById(sectionId).style.display = 'block';
+      }
+      
+      // Initial setup to show only the home section
+      document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('.content').forEach(section => section.style.display = 'none');
+          document.getElementById('home').style.display = 'block';
+      });
