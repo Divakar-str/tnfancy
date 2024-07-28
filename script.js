@@ -159,7 +159,15 @@ function applyCategoryColor(elementId, category) {
  
 }
 
-// Add event listeners to move focus between inputs
+
+
+// Function to move focus to the previous input field when backspace is pressed
+function moveFocusBack(currentInput, prevInput) {
+  if (currentInput.value.length === 0) {
+    prevInput.focus();
+  }
+}
+// Add event listeners to move focus, handle backspace, and validate inputs
 document.getElementById('box1').addEventListener('input', function() {
   moveFocus(this, document.getElementById('box2'));
 });
@@ -169,15 +177,31 @@ document.getElementById('box2').addEventListener('input', function() {
   moveFocus(this, document.getElementById('box3'));
 });
 
+
+
 document.getElementById('box3').addEventListener('input', function() {
-  validateInput(this, /^[A-Za-z]{0,2}$/);
+  validateInput(this, /^[A-Za-z]{1,2}$/);
   moveFocus(this, document.getElementById('box4'));
+});
+
+document.getElementById('box3').addEventListener('keydown', function(event) {
+  if (event.key === 'Backspace') {
+    moveFocusBack(this, document.getElementById('box2'));
+  }
 });
 
 document.getElementById('box4').addEventListener('input', function() {
   validateInput(this, /^[0-9]{4}$/);
   moveFocus(this, document.getElementById('submit'));
 });
+
+document.getElementById('box4').addEventListener('keydown', function(event) {
+  if (event.key === 'Backspace') {
+    moveFocusBack(this, document.getElementById('box3'));
+  }
+});
+
+
 
 // Add event listener to form submit
 document.getElementById('myForm').addEventListener('submit', function(event) {

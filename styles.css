@@ -254,3 +254,11 @@ html, body {
       font-size: 1.8em !important;
   }
 }
+
+
+@media  (max-width: 916px){
+  .number-plate {
+    margin-left: 60px;
+  }
+  
+}
