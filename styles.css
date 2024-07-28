@@ -68,6 +68,7 @@ html, body {
 
 .error-input {
     border: 1px solid red !important;
+    color:red;
 }
 .error-message {
     color: red;
@@ -101,7 +102,25 @@ html, body {
     background-color: #e9ecef;
 }
 
+#myForm input{
+  text-align: center;
+  font-size: larger;
+  margin: 0.1px;
+}
 
+.form-group {
+  padding: 0 !important;
+  color: #ffffff;
+  border: 1.5px solid #343a40 !important;
+  margin: 0 !important;
+  width: 100%;
+  border-radius: 5.5px;
+}
+
+.form-group > * {
+  margin: 0;
+  padding: 0;
+}
 
 #chart{
   display: none;
