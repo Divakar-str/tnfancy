@@ -256,9 +256,17 @@ html, body {
 }
 
 
-@media  (max-width: 916px){
+@media  (max-width: 975px){
   .number-plate {
     margin-left: 60px;
+  }
+  
+}
+
+
+@media (max-width: 768px) {
+  .number-plate {
+      margin-left: 0;
   }
   
 }
