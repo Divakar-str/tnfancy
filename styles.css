@@ -50,7 +50,7 @@ html, body {
     flex: 1;
   }
   .footer {
-    background-color: #343a40;
+    background-color: #343a40 !important;
     color: #ffffff;
     padding: 20px 0;
   }
@@ -61,6 +61,8 @@ html, body {
   .footer a:hover {
     text-decoration: underline;
   }
+
+
 #box-3{
 
     text-transform: uppercase !important;

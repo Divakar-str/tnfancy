@@ -73,7 +73,7 @@
                         </a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#faq" data-target="#faq" onclick="showSection(event, 'faq')">
+                        <a class="nav-link" href="#faq" id="loadFaq" data-target="#faq" onclick="showSection(event, 'faq')">
                             <i class="fas fa-question-circle mr-1"></i> FAQ
                         </a>
                     </li>
@@ -193,39 +193,9 @@
 
     <!-- FAQ Section -->
     <div class="container mt-5 content" id="faq" style="display: none;">
-        <h2 class="mb-4">Frequently Asked Questions</h2>
-        <div class="accordion" id="faqAccordion">
-            <div class="card">
-                <div class="card-header" id="faq1">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" 
-                                aria-expanded="true" aria-controls="collapse1">
-                            What is Numerology?
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapse1" class="collapse show" aria-labelledby="faq1" data-parent="#faqAccordion">
-                    <div class="card-body">
-                        Numerology is the study of numbers and their mystical significance in our lives. It explores how numbers influence our personality, behavior, and destiny.
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="faq2">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" 
-                                aria-expanded="false" aria-controls="collapse2">
-                            How does Vehicle Number Numerology work?
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapse2" class="collapse" aria-labelledby="faq2" data-parent="#faqAccordion">
-                    <div class="card-body">
-                        Our tool analyzes the numerical components of your vehicle's registration number to provide insights and predictions based on numerological principles.
-                    </div>
-                </div>
-            </div>
-            <!-- Add more FAQs as needed -->
+        
+        <div id="faqSection" class="mt-4">
+            <!-- FAQ content will be loaded here -->
         </div>
     </div>
 
@@ -320,30 +290,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
     <script src="script.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            // Initialize tooltips
-            $('[data-toggle="tooltip"]').tooltip();
-
-            // Show specific section based on navigation
-            window.showSection = function(event, sectionId) {
-                event.preventDefault();
-                $('.content').hide();
-                $('#' + sectionId).show();
-                $('.nav-link').removeClass('active');
-                $(event.currentTarget).addClass('active');
-            };
-
-            // Handle Contact Form Submission
-            $('#contactForm').on('submit', function(e) {
-                e.preventDefault();
-                // Add your form submission logic here
-                alert('Message sent successfully!');
-                $('#contactModal').modal('hide');
-                $(this)[0].reset();
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
