@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle Number Numerology</title>
 
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover the power of vehicle number numerology. Analyze your vehicle number to understand its influence on your life and luck.">
+    <meta name="keywords" content="Vehicle Number Numerology, Numerology, Vehicle Luck, Tamil Numerology, TN Vehicle Number">
+    <meta name="author" content="Your Name or Company">
+
+    <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png">
@@ -16,32 +22,59 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- FontAwesome CSS for icons -->
+    <!-- Single FontAwesome CSS to avoid duplication -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
     <link href="styles.css" rel="stylesheet">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Vehicle Number Numerology",
+      "url": "https://tnfancynumber.netlify.app/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tnfancynumber.netlify.app/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
             <div class="d-flex w-100 justify-content-between align-items-center">
-                <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Logo" style="height: 60px;"> Vehicle Number Numerology (தமிழ்)</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" alt="Logo" style="height: 60px;"> Vehicle Number Numerology (தமிழ்)
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars navbar-toggler-icon"></i>
                 </button>
             </div>
             <div class="collapse navbar-collapse show justify-content-end" id="navbarNav">
                 <ul class="navbar-nav d-flex flex-row">
                     <li class="nav-item active mx-2">
-                        <a class="nav-link active" href="#" data-target="#home" onclick="showSection(event, 'home')">
+                        <a class="nav-link active" href="#home" data-target="#home" onclick="showSection(event, 'home')">
                             <i class="fas fa-home mr-1"></i> Home <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#" data-target="#chart" onclick="showSection(event, 'chart')">
+                        <a class="nav-link" href="#chart" data-target="#chart" onclick="showSection(event, 'chart')">
                             <i class="fas fa-chart-bar mr-1"></i> Chart
+                        </a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#about" data-target="#about" onclick="showSection(event, 'about')">
+                            <i class="fas fa-info-circle mr-1"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#faq" data-target="#faq" onclick="showSection(event, 'faq')">
+                            <i class="fas fa-question-circle mr-1"></i> FAQ
                         </a>
                     </li>
                 </ul>
@@ -49,7 +82,11 @@
         </div>
     </nav>
 
+    <!-- Home Section -->
     <div class="container mt-5 content" id="home">
+        <h1 class="mb-4">Welcome to Vehicle Number Numerology</h1>
+        <p>Unlock the secrets of your vehicle number and discover how it influences your life, luck, and success. Our numerology tool analyzes your vehicle's number to provide insightful predictions and guidance.</p>
+        
         <form id="myForm">
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -63,7 +100,7 @@
                         <input type="text" class="form-control" id="box4" pattern="[0-9]{4}" required
                                data-toggle="tooltip" title="Number">
                         <div class="input-group-append">
-                            <button type="submit" id="submit box5" class="btn " style="background-color: #343a40; color: aliceblue;">
+                            <button type="submit" id="submit box5" class="btn" style="background-color: #343a40; color: aliceblue;">
                                 <i class="fas fa-check"></i> Submit
                             </button>
                         </div>
@@ -72,6 +109,7 @@
             </div>
         </form>
 
+        <!-- Number Plate Display -->
         <div class="number-plate" id="numberPlate">
             <div class="blue-section">
                 <div class="hologram-container"></div>
@@ -80,8 +118,8 @@
             <div class="number" id="number"></div>
         </div>
 
+        <!-- Results Section -->
         <div id="result" class="mt-3">
-            <!-- Table to display dynamic content -->
             <div class="table-responsive">
                 <table class="table table-striped table-hover table-custom table-bordered">
                     <thead>
@@ -124,7 +162,9 @@
         </div>
     </div>
 
-    <div class="container mt-5 content" id="chart">
+    <!-- Chart Section -->
+    <div class="container mt-5 content" id="chart" style="display: none;">
+        <h2 class="mb-4">Numerology Charts</h2>
         <div class="table-container table-responsive">
             <table class="table table-striped table-bordered" id="charNumberTable">
                 <thead class="thead-dark">
@@ -143,30 +183,164 @@
         </div>
     </div>
 
-    <footer class="footer mt-auto py-3">
+    <!-- About Section -->
+    <div class="container mt-5 content" id="about" style="display: none;">
+        <h2 class="mb-4">About Vehicle Number Numerology</h2>
+        <p>Vehicle Number Numerology is a specialized tool designed to analyze the numerical values of your vehicle's registration number. Based on ancient numerological principles, this tool provides insights into how your vehicle number can influence various aspects of your life, including prosperity, health, and personal relationships.</p>
+        <p>Whether you're curious about the significance of your current vehicle number or considering a change, our numerology analysis offers valuable guidance.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container mt-5 content" id="faq" style="display: none;">
+        <h2 class="mb-4">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="card">
+                <div class="card-header" id="faq1">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" 
+                                aria-expanded="true" aria-controls="collapse1">
+                            What is Numerology?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse1" class="collapse show" aria-labelledby="faq1" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Numerology is the study of numbers and their mystical significance in our lives. It explores how numbers influence our personality, behavior, and destiny.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="faq2">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" 
+                                aria-expanded="false" aria-controls="collapse2">
+                            How does Vehicle Number Numerology work?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse2" class="collapse" aria-labelledby="faq2" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Our tool analyzes the numerical components of your vehicle's registration number to provide insights and predictions based on numerological principles.
+                    </div>
+                </div>
+            </div>
+            <!-- Add more FAQs as needed -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; 2024 Vehicle Number Numerology (தமிழ்).</p>
+                    <p>&copy; 2024 Vehicle Number Numerology (தமிழ்). All rights reserved.</p>
                 </div>
-                <!-- <div class="col-md-6 text-md-right">designed by Divakar_str
-                  <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a> 
-                </div> -->
+                <div class="col-md-6 text-md-right">
+                    <a href="#privacy" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a> | 
+                    <a href="#terms" data-toggle="modal" data-target="#termsModal">Terms of Service</a> | 
+                    <a href="#contact" data-toggle="modal" data-target="#contactModal">Contact Us</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Privacy Policy</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Your privacy policy content goes here. Ensure it covers how you collect, use, and protect user data.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Terms of Service</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Your terms of service content goes here. Ensure it outlines the rules and guidelines for using your site.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Contact Us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" class="form-control" id="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" class="form-control" id="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3064735649600058" crossorigin="anonymous"></script>
 
     <!-- Full jQuery, Popper.js, and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3064735649600058"
-    crossorigin="anonymous"></script>
 
     <script>
         $(document).ready(function () {
+            // Initialize tooltips
             $('[data-toggle="tooltip"]').tooltip();
+
+            // Show specific section based on navigation
+            window.showSection = function(event, sectionId) {
+                event.preventDefault();
+                $('.content').hide();
+                $('#' + sectionId).show();
+                $('.nav-link').removeClass('active');
+                $(event.currentTarget).addClass('active');
+            };
+
+            // Handle Contact Form Submission
+            $('#contactForm').on('submit', function(e) {
+                e.preventDefault();
+                // Add your form submission logic here
+                alert('Message sent successfully!');
+                $('#contactModal').modal('hide');
+                $(this)[0].reset();
+            });
         });
     </script>
 </body>
