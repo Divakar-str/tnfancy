@@ -24,9 +24,55 @@ $(document).ready(function () {
 
 
 $(document).ready(function() {
-    $('#loadFaq').click(function() {
-        $('#faqSection').load('faq.html', function() {
-            $(this).fadeIn(); // Fade in the FAQ section
+    $('#loadhow').click(function() {
+        $('#howSection').load('how.html', function() {
+            $(this).fadeIn(); 
+        });
+    });
+}
+);
+
+
+$(document).ready(function() {
+    $('#loadabout').click(function() {
+        $('#aboutSection').load('about.html', function() {
+            $(this).fadeIn(); 
         });
     });
 });
+
+
+$(document).ready(function() {
+    $('#loadFaq').click(function() {
+        $('#faqSection').load('faq.html', function() {
+            $(this).fadeIn(); 
+        });
+    });
+});
+
+
+$(document).ready(function() {
+    $('#loadprivacy').click(function() {
+        $('#privacySection').load('privacypolicy.html', function() {
+            $(this).fadeIn(); 
+        });
+    });
+} );
+
+
+$(document).ready(function() {
+    $('#loadterms').click(function() {
+        $('#termsSection').load('terms.html', function() {
+            $(this).fadeIn(); 
+        });
+    });
+} );
+
+
+$(document).ready(function() {
+    $('#loadcontact').click(function() {
+        $('#contactSection').load('contact.html', function() {
+            $(this).fadeIn(); 
+        });
+    });
+} );

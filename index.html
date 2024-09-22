@@ -68,7 +68,11 @@
                         </a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#about" data-target="#about" onclick="showSection(event, 'about')">
+                        <a class="nav-link" href="#how" id="loadhow" data-target="#how" onclick="showSection(event, 'how')">
+                            <i class="fas fa-question-circle mr-1"></i> How
+                        </a>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#about" id="loadabout" data-target="#about" onclick="showSection(event, 'about')">
                             <i class="fas fa-info-circle mr-1"></i> About
                         </a>
                     </li>
@@ -85,7 +89,7 @@
     <!-- Home Section -->
     <div class="container mt-5 content" id="home">
         <h1 class="mb-4">Welcome to Vehicle Number Numerology</h1>
-        <p>Unlock the secrets of your vehicle number and discover how it influences your life, luck, and success. Our numerology tool analyzes your vehicle's number to provide insightful predictions and guidance.</p>
+        <p> Our numerology tool analyzes your vehicle's number to provide insightful predictions and guidance.</p>
         
         <form id="myForm">
             <div class="form-row">
@@ -184,12 +188,17 @@
         </div>
     </div>
 
+    <!-- How its Working-->
+    <div class="container-fluid mt-5 content" id="how" style="display: none;">
+        <div id="howSection" class="mt-4">
+            
+        </div> </div>
+
     <!-- About Section -->
     <div class="container mt-5 content" id="about" style="display: none;">
-        <h2 class="mb-4">About Vehicle Number Numerology</h2>
-        <p>Vehicle Number Numerology is a specialized tool designed to analyze the numerical values of your vehicle's registration number. Based on ancient numerological principles, this tool provides insights into how your vehicle number can influence various aspects of your life, including prosperity, health, and personal relationships.</p>
-        <p>Whether you're curious about the significance of your current vehicle number or considering a change, our numerology analysis offers valuable guidance.</p>
-    </div>
+        <div id="aboutSection" class="mt-4">
+           
+        </div> </div>
 
     <!-- FAQ Section -->
     <div class="container mt-5 content" id="faq" style="display: none;">
@@ -207,9 +216,9 @@
                     <p>&copy; 2024 Vehicle Number Numerology (தமிழ்). All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="#privacy" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a> | 
-                    <a href="#terms" data-toggle="modal" data-target="#termsModal">Terms of Service</a> | 
-                    <a href="#contact" data-toggle="modal" data-target="#contactModal">Contact Us</a>
+                    <a href="#privacy" data-toggle="modal" data-target="#privacyModal" id="loadprivacy">Privacy Policy</a> | 
+                    <a href="#terms" data-toggle="modal" data-target="#termsModal" id="loadterms">Terms of Service</a> | 
+                    <a href="#contact" data-toggle="modal" data-target="#contactModal" id="loadcontact">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -226,8 +235,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Your privacy policy content goes here. Ensure it covers how you collect, use, and protect user data.</p>
-                </div>
+                    <div id="privacySection" class="mt-4">
+                       
+                    </div>                  </div>
             </div>
         </div>
     </div>
@@ -243,8 +253,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Your terms of service content goes here. Ensure it outlines the rules and guidelines for using your site.</p>
-                </div>
+                    <div id="termsSection" class="mt-4">
+                        <!-- Terms of Service content will be loaded here -->
+                         </div>
+
+                                </div>
             </div>
         </div>
     </div>
@@ -260,21 +273,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="contactName">Name</label>
-                            <input type="text" class="form-control" id="contactName" required>
+                    <div id="contactSection" class="mt-4">
+                      
                         </div>
-                        <div class="form-group">
-                            <label for="contactEmail">Email</label>
-                            <input type="email" class="form-control" id="contactEmail" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contactMessage">Message</label>
-                            <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+
                 </div>
             </div>
         </div>
