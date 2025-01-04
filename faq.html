@@ -99,23 +99,107 @@
 </div>
 
 <style>
+    /* FAQ container styling */
     .faq-container {
-        max-height: 400px; /* Set the maximum height */
-        overflow-y: auto;  /* Enable vertical scrolling */
+        max-height: 400px; /* Limit height */
+        overflow-y: auto; /* Enable scrolling */
+        padding: 20px;
+        border-radius: 8px; /* Slightly rounded corners */
+        background-color: #ffffff; /* Clean white background */
+        border: 1px solid #e0e0e0; /* Light gray border */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
     }
 
+    /* Heading style */
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        color: #222222; /* Dark gray for professional contrast */
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Card header styling */
+    .card-header {
+        background-color: transparent;
+        border: none; /* Remove default borders */
+        padding: 0.5rem 1rem;
+        cursor: pointer; /* Indicate clickable area */
+        transition: background-color 0.3s ease;
+    }
+
+    .card-header:hover {
+        background-color: #f8f9fa; /* Subtle hover effect */
+    }
+
+    /* Button styles */
+    .btn-link {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: #007bff; /* Professional blue for links */
+        text-decoration: none; /* No underline */
+        transition: color 0.3s ease;
+    }
+
+    .btn-link:hover {
+        color: #0056b3; /* Darker blue on hover */
+    }
+
+    /* Accordion card body */
+    .card-body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.95rem;
+        color: #555555; /* Medium gray for better readability */
+        background-color: #f8f9fa; /* Light background for distinction */
+        padding: 1rem;
+        border: 1px solid #e0e0e0; /* Subtle border */
+        border-radius: 5px; /* Smooth edges */
+    }
+
+    /* Active button state */
+    .btn-link[aria-expanded="true"] {
+        font-weight: 500; /* Slightly bold for emphasis */
+        color: #0056b3; /* Darker blue for expanded state */
+    }
+
+    /* Scrollbar customization */
+    .faq-container::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .faq-container::-webkit-scrollbar-thumb {
+        background-color: #cccccc;
+        border-radius: 3px;
+    }
+
+    .faq-container::-webkit-scrollbar-thumb:hover {
+        background-color: #aaaaaa;
+    }
+
+    /* Responsive design */
     @media (max-width: 768px) {
         h1 {
             font-size: 1.5rem;
         }
+
         .btn-link {
-            font-size: 1rem;
-        }
-        .card-body {
             font-size: 0.9rem;
         }
+
+        .card-body {
+            font-size: 0.85rem;
+        }
+
         .faq-container {
-            max-height: 300px; /* Adjust max height for smaller screens */
+            max-height: 300px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1200px) {
+        .faq-container {
+            max-height: 350px;
         }
     }
 </style>
