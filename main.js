@@ -24,6 +24,15 @@ $(document).ready(function () {
 
 
 $(document).ready(function() {
+    $('#loadrange').click(function() {
+        $('#RangeSection').load('range.html', function() {
+            $(this).fadeIn(); 
+        });
+    });
+}
+);
+
+$(document).ready(function() {
     $('#loadhow').click(function() {
         $('#howSection').load('how.html', function() {
             $(this).fadeIn(); 

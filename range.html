@@ -1,0 +1,222 @@
+<!-- Start: Dynamic Range Section Dashboard Component -->
+<section class="container my-5 py-4 px-3 bg-white rounded shadow-sm">
+    <div class="row g-4 align-items-start">
+        
+        <!-- Left Column: Input Form (Range Section Card) -->
+        <div class="col-lg-5 print-hide-card">
+            <div class="card border border-light-subtle shadow-sm p-4 bg-white rounded-3">
+                <h2 class="fw-bold text-dark h4 mb-4 text-center text-lg-start">Range Section</h2>
+                
+                <div class="row g-3 mb-3">
+                    <!-- Start Number Input -->
+                    <div class="col-6">
+                        <label for="startNo" class="form-label small fw-semibold text-secondary">Start No:</label>
+                        <input type="number" id="startNo" class="form-control form-control-lg font-monospace fs-6"  min="1" max="9999">
+                    </div>
+                    <!-- End Number Input -->
+                    <div class="col-6">
+                        <label for="endNo" class="form-label small fw-semibold text-secondary">End No:</label>
+                        <input type="number" id="endNo" class="form-control form-control-lg font-monospace fs-6"  min="1" max="9999">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+    <label for="destinyTotal" class="form-label small fw-bold text-uppercase tracking-wider text-muted mb-2">Total (1-9)</label>
+    <div class="position-relative">
+        <select id="destinyTotal" class="form-select form-select-lg font-monospace text-dark bg-white border-secondary-subtle py-2.5 px-3 fs-6 rounded-3 shadow-sm" style="letter-spacing: 0.5px;">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="all">அனைத்து எண்கள் (Show All Numbers)</option>
+        </select>
+    </div>
+</div>
+
+                <!-- Action Button Matrix Row -->
+                <div class="row g-2">
+                    <div class="col-6">
+                        <button id="calculateMatrixBtn" class="btn btn-primary btn-lg w-100 fw-bold fs-6 shadow-sm py-2">Calculate</button>
+                    </div>
+                    <div class="col-6">
+                        <button id="printMatrixBtn" class="btn btn-secondary btn-lg w-100 fw-bold fs-6 shadow-sm py-2">Print</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Interactive Grid Table Output View -->
+        <div class="col-lg-7">
+            <!-- Active Filter Statistics Alert Banner -->
+            <div id="gridCounterAlert" class="alert alert-secondary py-2 px-3 mb-3 border-0 small font-monospace d-none">
+                📊 கண்டறியப்பட்ட மொத்த எண்கள்: <strong id="matrixCount" class="text-dark">0</strong>
+            </div>
+
+            <!-- Scrollable Symmetric Grid Border Wrapper -->
+            <div id="gridPrintArea" class="table-responsive border rounded shadow-sm bg-white" style="max-height: 420px; overflow-y: auto;">
+                <table class="table table-bordered table-sm align-middle text-center mb-0 font-monospace fs-6 fw-bold">
+                    <tbody id="matrixGridOutputBody">
+                        <!-- Calculated tabular arrays drop here instantly via execution engine -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Matrix Engine Preloader Display Block -->
+            <div id="matrixGridSpinner" class="text-center my-5 d-none">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="text-muted small mt-2 font-monospace">கிரிட் அட்டவணை கணக்கிடப்படுகிறது...</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Advanced Layout Styling Rules for Perfect Grid Layout Integration -->
+<style>
+    /* 6-Column Width Configuration matching image_82f60d.png exactly */
+    #matrixGridOutputBody td {
+        width: 16.666%;
+        padding: 12px 6px;
+        font-size: 1.05rem;
+        color: #1a1a1a;
+        background-color: #ffffff;
+        border: 1px solid #333333 !important; /* Bold high-contrast grid lines */
+    }
+    
+    /* Highlight state logic for the filtered matching root values */
+    .matching-root-active {
+        background-color: #ffffff !important; 
+        color: #000000 !important;
+    }
+
+    /* Scrollbar Styling for Clean Workspace UI */
+    #gridPrintArea::-webkit-scrollbar {
+        width: 6px;
+    }
+    #gridPrintArea::-webkit-scrollbar-thumb {
+        background-color: #cccccc;
+        border-radius: 3px;
+    }
+
+    /* Print Command Framework - Hides inputs and fits table to paper size */
+    @media print {
+        body {
+            background-color: #ffffff !important;
+        }
+        .print-hide-card, script, link, .navbar, footer, #gridCounterAlert {
+            display: none !important;
+        }
+        .col-lg-7 {
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        #gridPrintArea {
+            max-height: none !important;
+            overflow: visible !important;
+            border: none !important;
+        }
+        #matrixGridOutputBody td {
+            padding: 15px 5px !important;
+            font-size: 1.2rem !important;
+        }
+    }
+</style>
+
+<!-- JavaScript Core Range to Grid Matrix System Engine -->
+<script>
+document.getElementById('calculateMatrixBtn').addEventListener('click', calculateGridMatrix);
+document.getElementById('printMatrixBtn').addEventListener('click', () => window.print());
+
+function computeSingleDigitDestiny(num) {
+    let sum = num.toString().split('').reduce((acc, d) => acc + parseInt(d), 0);
+    while (sum > 9) {
+        sum = sum.toString().split('').reduce((acc, d) => acc + parseInt(d), 0);
+    }
+    return sum;
+}
+
+function calculateGridMatrix() {
+    let startVal = parseInt(document.getElementById('startNo').value) ;
+    let endVal = parseInt(document.getElementById('endNo').value) ;
+    const chosenRoot = document.getElementById('destinyTotal').value;
+
+    const tbody = document.getElementById('matrixGridOutputBody');
+    const wrapper = document.getElementById('gridPrintArea');
+    const spinner = document.getElementById('matrixGridSpinner');
+    const alertBanner = document.getElementById('gridCounterAlert');
+    const totalCountEl = document.getElementById('matrixCount');
+
+    // Bounds Verification & Protection Loops
+    if (startVal < 1) startVal = 1;
+    if (endVal > 9999) endVal = 9999;
+    if (startVal > endVal) {
+        let temp = startVal;
+        startVal = endVal;
+        endVal = temp;
+        document.getElementById('startNo').value = startVal;
+        document.getElementById('endNo').value = endVal;
+    }
+
+    // Reset UI Views before loop sequence
+    tbody.innerHTML = '';
+    wrapper.classList.add('d-none');
+    alertBanner.classList.add('d-none');
+    spinner.classList.remove('d-none');
+
+    setTimeout(() => {
+        let htmlGridBuffer = '';
+        let currentRowCells = [];
+        const TARGET_COL_COUNT = 6; // Standard 6-Column layout matrix logic
+        let elementMatchesCounter = 0;
+
+        for (let i = startVal; i <= endVal; i++) {
+            let itemRoot = computeSingleDigitDestiny(i);
+
+            // Match values against chosen select value rules
+            if (chosenRoot !== 'all' && itemRoot.toString() !== chosenRoot) {
+                continue; 
+            }
+
+            elementMatchesCounter++;
+            let formattedStringNum = i.toString().padStart(4, '0');
+            
+            // Generate clean standard cells matching visual table specifications
+            currentRowCells.push(`<td class="matching-root-active">${formattedStringNum}</td>`);
+
+            // Splice array into native table rows upon hitting columns threshold limits
+            if (currentRowCells.length === TARGET_COL_COUNT) {
+                htmlGridBuffer += `<tr>${currentRowCells.join('')}</tr>`;
+                currentRowCells = [];
+            }
+        }
+
+        // Fill row remnants evenly to prevent broken asymmetric table layout lines
+        if (currentRowCells.length > 0) {
+            while (currentRowCells.length < TARGET_COL_COUNT) {
+                currentRowCells.push(`<td class="text-muted bg-light opacity-25">-</td>`);
+            }
+            htmlGridBuffer += `<tr>${currentRowCells.join('')}</tr>`;
+        }
+
+        if (elementMatchesCounter > 0) {
+            tbody.innerHTML = htmlGridBuffer;
+            totalCountEl.textContent = elementMatchesCounter;
+            alertBanner.classList.remove('d-none');
+        } else {
+            tbody.innerHTML = `<tr><td colspan="6" class="text-muted py-4 fw-normal fs-6"> வரம்பை உள்ளிடவும்.</td></tr>`;
+        }
+
+        spinner.classList.add('d-none');
+        wrapper.classList.remove('d-none');
+    }, 60);
+}
+
+// Instantiate grid calculations array automatically upon view initialization load trigger
+calculateGridMatrix();
+</script>
